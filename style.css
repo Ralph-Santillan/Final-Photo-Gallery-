@@ -1,0 +1,91 @@
+/* ========== Global Styles (Mobile-First) ========== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr; /* One-column layout for mobile */
+    gap: 10px; /* 10px gap between rows and columns */
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+figure {
+    background-color: white;
+    padding: 10px;
+    border: 2px solid #ccc;
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px; /* Default small border-radius */
+}
+
+/* ========== Tablet View (772px) ========== */
+@media (min-width: 772px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+    }
+
+    figure {
+        border-radius: 50%; /* Circular shape */
+    }
+
+    figure:last-child {
+        grid-column: span 2; /* Last figure spans both columns */
+    }
+}
+
+/* ========== Large Screen View (992px) ========== */
+@media (min-width: 992px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr); /* Three columns */
+    }
+
+    figure {
+        border-radius: 0; /* Remove circular shape */
+    }
+
+    figure:nth-child(3n) {
+        grid-column: span 2; /* Every third figure spans two columns */
+    }
+}
+
+/* ========== Prefers-Reduced-Motion ========== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important; /* Remove smooth scrolling */
+    }
+}
+
+/* ========== Dark Mode ========== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222;
+        color: #eee;
+    }
+
+    figure {
+        background-color: #444;
+        color: #ffd700; /* Yellowish text */
+        border: 2px solid black;
+    }
+}
